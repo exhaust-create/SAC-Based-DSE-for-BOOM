@@ -317,18 +317,18 @@ if __name__ == '__main__':
     label=['ppov0','ppov1','sac','baggbrt']
     ema_plotting(episodes, mean, 15, 'Avg_Reward', 'avg_reward', os.path.join(config_sac["reports_folder_path"], config_sac["avg_reward_curve_path"]), label=label)
     
-    # Save all mean and std values.
-    data={
-        'ppov0_mean': ppov0_mean,
-        'ppov0_std': ppov0_std,
-        'ppov1_mean': ppov1_mean,
-        'ppov1_std': ppov1_std,
-        'sac_mean': sac_mean,
-        'sac_std': sac_std,
-        'baggbrt_mean': baggbrt_mean,
-        'baggbrt_std': baggbrt_std
-    }
-    pd.DataFrame(data).to_csv(os.path.join(config_sac["reports_folder_path"], "mean_&_std_"+width_pref+".csv"), index=False)
+    # # Save all mean and std values.
+    # data={
+    #     'ppov0_mean': ppov0_mean,
+    #     'ppov0_std': ppov0_std,
+    #     'ppov1_mean': ppov1_mean,
+    #     'ppov1_std': ppov1_std,
+    #     'sac_mean': sac_mean,
+    #     'sac_std': sac_std,
+    #     'baggbrt_mean': baggbrt_mean,
+    #     'baggbrt_std': baggbrt_std
+    # }
+    # pd.DataFrame(data).to_csv(os.path.join(config_sac["reports_folder_path"], "mean_&_std_"+width_pref+".csv"), index=False)
 
     # Plot MSE
     mse_label = ["trial 1", "trial 2", "trial 3"]
