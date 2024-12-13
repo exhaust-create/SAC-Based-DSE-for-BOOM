@@ -77,9 +77,9 @@ def ppov0_run(config, seed=10):
         entropy.append(np.array(agent.entropy))
         all_rewards[:, j] = np.array(total_rewards).squeeze(-1)[indices]
 
-        best_design_episode, best_design, best_design_ppa, proj = env.get_best_point(np.array(final_microarchs), np.array(norm_ppas),
+        best_design, best_design_ppa, proj = env.get_best_point(np.array(final_microarchs), np.array(norm_ppas),
                                                                 np.array(total_rewards))
-        print("best_episode: {}, best_design: {}, best_design_ppa: {}, projection: {}".format(best_design_episode, best_design, best_design_ppa, proj))
+        print("best_design: {}, best_design_ppa: {}, projection: {}".format(best_design, best_design_ppa, proj))
 
     # Get the means and standard deviations of episode rewards.
     # These two are what should be plotted.
@@ -124,9 +124,9 @@ def ppov1_run(config, seed=10):
 
         entropy.append(np.array(agent.entropy))
 
-        best_design_episode, best_design, best_design_ppa, proj = env.get_best_point(np.array(final_microarchs), np.array(norm_ppas),
+        best_design, best_design_ppa, proj = env.get_best_point(np.array(final_microarchs), np.array(norm_ppas),
                                                                 np.array(total_rewards))
-        print("best_episode: {}, best_design: {}, best_design_ppa: {}, projection: {}".format(best_design_episode, best_design, best_design_ppa, proj))
+        print("best_design: {}, best_design_ppa: {}, projection: {}".format(best_design, best_design_ppa, proj))
 
     # Get the means and standard deviations of episode rewards.
     mean = all_rewards.mean(axis=1)
@@ -178,9 +178,9 @@ def sac_run(config, seed=10):
         target_value_label = ["target_value"]
         entropy.append(np.array(agent.entropy))
 
-        best_design_episode, best_design, best_design_ppa, proj = env.get_best_point(np.array(final_microarchs), np.array(norm_ppas),
+        best_design, best_design_ppa, proj = env.get_best_point(np.array(final_microarchs), np.array(norm_ppas),
                                                                 np.array(total_rewards))
-        print("best_episode: {}, best_design: {}, best_design_ppa: {}, projection: {}".format(best_design_episode, best_design, best_design_ppa, proj))
+        print("best_design: {}, best_design_ppa: {}, projection: {}".format(best_design, best_design_ppa, proj))
         # length = np.arange(critic_1_loss.shape[-1])
         # plot_result(length, loss, 'Loss', 'loss', os.path.join(config["reports_folder_path"],"SAC_loss_seed"+str(actual_seed)+".pdf"), label=label, dot=False)
         # state_length = np.arange(target_value.shape[-1])
@@ -257,9 +257,9 @@ def baggbrt_run_once(config, seed=10):
 
     all_rewards[:, 0] = np.array(found_designs_proj)[indices]
 
-    best_design_episode, best_design, best_design_ppa, proj = agent.get_best_point(np.array(found_designs), np.array(found_designs_ppa),
+    best_design, best_design_ppa, proj = agent.get_best_point(np.array(found_designs), np.array(found_designs_ppa),
                                                               np.array(found_designs_proj))
-    print("best_episode: {}, best_design: {}, best_design_ppa: {}, projection: {}".format(best_design_episode, best_design, best_design_ppa, proj))
+    print("best_design: {}, best_design_ppa: {}, projection: {}".format(best_design, best_design_ppa, proj))
     return np.array(found_designs_proj), all_rewards, test_mse
 
 
