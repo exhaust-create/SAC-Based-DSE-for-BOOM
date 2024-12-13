@@ -453,7 +453,7 @@ class BOOMENV(gym.Env):
          norm_ppa = normalized_ppas[idx].reshape(-1, normalized_ppas.shape[-1])
          ppa = self.renormalize_ppa(norm_ppa)
          ppa[:,1:] = -ppa[:,1:]
-         return idx, final_microarchs[idx], ppa, proj_with_punishment[idx]
+         return final_microarchs[idx], ppa, proj_with_punishment[idx]
       else:
          # Get rid of the points out of the constraint
          selected_designs = final_microarchs[over_zero]
@@ -467,4 +467,4 @@ class BOOMENV(gym.Env):
          best_design_ppa[:,1:] = -best_design_ppa[:,1:]
          proj = selected_rewards[best_point_idx]
          idx = np.arange(len(final_microarchs))[over_zero][best_point_idx]
-         return idx, best_design, best_design_ppa, proj
+         return best_design, best_design_ppa, proj
