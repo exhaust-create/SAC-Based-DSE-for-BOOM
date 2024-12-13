@@ -5,7 +5,7 @@ This is the open-source code of our SAC-based micro-architecture DSE method.
 We operated this program on Windows 10 or Windows 11, python 3.8 or python 3.10. The computer memory should have at least 16 GB.
 
 # Run
-To run the program, execute the command like `python main.py --width_pred 5W_721 > ./log/log_5W_721.log`, where `--width_pref 5W_721` refers to the DecodeWidth and the weight vector which is `[0.7,0.2,0.1]`. This command will autonomously search for the config files named _config\_ppo\_5W\_721.yml_ and _config\_sac\_5W\_721.yml_ to fulfill the hyperparameters, then execute all DSE methods.
+To run the program, enter the command like `python main.py --width_pred 5W_721 > ./log/log_5W_721.log`, where `--width_pref 5W_721` refers to the DecodeWidth and the weight vector which is `[0.7,0.2,0.1]`. This command will autonomously search for the config files named _config\_ppo\_5W\_721.yml_ and _config\_sac\_5W\_721.yml_ to fulfill the hyperparameters, then execute all DSE methods.
 
 In the log file, search for the word "projection", then you will see the projection value of the "best-found micro-architecture design" in each trial. The form of the message is like this:
 ```
