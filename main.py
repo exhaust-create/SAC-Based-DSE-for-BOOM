@@ -295,10 +295,15 @@ def baggbrt_run_multiprocess(config, seed):
 # ---------------- BagGBRT Multiprocessing END---------------- #
 
 if __name__ == '__main__':
+    # Read Width and Preference
+    parser = argparse.ArgumentParser()
+    parser.add_argument('--width_pref', default = None)
+    args = parser.parse_args()
+    
     start = timeit.default_timer()
 
     seed = 300
-    width_pref = "5W_721"   # Change this to modify the names of "config" files and csv file.
+    width_pref = "5W_721" if args.width_pref is None else args.width_pref  # Change this to modify the names of "config" files and csv file.
     config_sac = get_configs("config/config_sac_"+width_pref+".yml")
     config_ppo = get_configs("config/config_ppo_"+width_pref+".yml")
 
